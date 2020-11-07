@@ -1,1 +1,0 @@
-# Inter-s-Compuesto
