@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp5
+{
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Inversión incial: ");
+            int Invesion_inicial = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Interes: ");
+            int Interes = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Numero de años: ");
+            int años = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("");
+
+            float Recompensa = 0;
+            float DineroFinal = 0;
+            for (int i = 1; i <= años; i++)
+            {
+                float inversion = Invesion_inicial + Recompensa;
+                Console.WriteLine(Interes + "% " + inversion + " = " + ((inversion * Interes) / 100));
+                Recompensa += (inversion * Interes) / 100;
+                DineroFinal = (inversion * Interes) / 100;
+                if(i == años)
+                {
+                    DineroFinal += inversion;
+                }
+            }
+
+            double decimales = DineroFinal - Math.Truncate(DineroFinal);
+            int centimos = Convert.ToInt32(Math.Truncate(decimales*100));
+            Console.WriteLine("Has conseguido: " + Math.Truncate(DineroFinal) + " euros y " + centimos + " centimos");
+            Console.Read();
+        }
+    }
+}
